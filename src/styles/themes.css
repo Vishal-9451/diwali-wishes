@@ -1,0 +1,24 @@
+:root {
+  --royal: #160d2c;
+  --violet: #291542;
+  --gold: #d6a84d;
+  --champagne: #f5cc75;
+  --ivory: #fff8eb;
+  --lavender: #c7b9d7;
+
+  --ink: var(--ivory);
+  --ink-soft: color-mix(in srgb, var(--lavender) 92%, white);
+  --line: color-mix(in srgb, var(--gold) 38%, transparent);
+  --line-soft: color-mix(in srgb, var(--lavender) 22%, transparent);
+  --glass: color-mix(in srgb, var(--violet) 62%, transparent);
+  --danger: #ff9aa8;
+
+  --font-display: 'Cormorant Garamond', 'Noto Serif Devanagari', Georgia, serif;
+  --font-body: 'Poppins', 'Noto Serif Devanagari', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow: 0 18px 50px rgb(0 0 0 / 0.38);
+  --header-h: 60px;
+  color-scheme: dark;
+}

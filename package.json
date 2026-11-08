@@ -1,0 +1,28 @@
+{
+  "name": "diwali-wishes",
+  "version": "1.0.0",
+  "description": "Diwali Wishes - Light Up Someone's World. A premium interactive Diwali greeting experience.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/great-vibes": "^5.3.0",
+    "@fontsource/noto-serif-devanagari": "^5.3.0",
+    "@fontsource/playfair-display": "^5.3.0",
+    "@fontsource/poppins": "^5.3.0",
+    "gsap": "^3.15.1",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^4.2.1",
+    "qrcode": "^1.5.4",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "vite": "^8.3.6"
+  }
+}

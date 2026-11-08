@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Diwali Wishes – Create Magical Greetings</title>
+    <meta name="description" content="Diwali Wishes – Light Up Someone's World. Create personalised Diwali greetings in English, Hindi and Hinglish, open a 3D gift box, light fireworks, draw rangoli and share a greeting card." />
+    <meta name="theme-color" content="#160D2C" />
+    <meta property="og:title" content="Diwali Wishes – Create Magical Greetings" />
+    <meta property="og:description" content="Light Up Someone's World with a personalised Diwali wish." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  </head>
+  <body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 5h3.5v14H7zM13.500 5H17v14h-3.500z" fill="currentColor"/></symbol>
+      <symbol id="i-volume" viewBox="0 0 24 24"><path d="M4 9.500v5h3.500L12 18.500v-13L7.500 9.500z" fill="currentColor"/><path d="M15 9a4.500 4.500 0 0 1 0 6M17.500 6.500a8 8 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round"/></symbol>
+      <symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 9.500v5h3.500L12 18.500v-13L7.500 9.500z" fill="currentColor"/><path d="m16 9.500 5 5m0-5-5 5" fill="none" stroke="currentColor" stroke-width="1.700" stroke-linecap="round"/></symbol>
+      <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M5 7h14M5 12h14M5 17h14" stroke="currentColor" stroke-width="1.700" stroke-linecap="round"/><circle cx="9" cy="7" r="2.200" fill="currentColor"/><circle cx="15" cy="12" r="2.200" fill="currentColor"/><circle cx="8" cy="17" r="2.200" fill="currentColor"/></symbol>
+    </svg>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="site-header">
+      <a class="brand" href="#/intro" aria-label="Diwali Wishes home">
+        <img src="./favicon.svg" alt="" width="28" height="28" />
+        <span class="brand__name">Diwali Wishes</span>
+      </a>
+      <nav class="journey" id="journey" aria-label="Experience steps" hidden></nav>
+      <div class="sound-dock">
+        <button type="button" class="icon-btn" data-music-toggle aria-pressed="false" aria-label="Play music">
+          <svg width="20" height="20" aria-hidden="true"><use href="#i-play" /></svg>
+        </button>
+        <button type="button" class="icon-btn" data-sound-panel-btn aria-expanded="false" aria-controls="sound-panel" aria-label="Sound settings">
+          <svg width="20" height="20" aria-hidden="true"><use href="#i-sliders" /></svg>
+        </button>
+        <div class="sound-panel glass" id="sound-panel" hidden>
+          <button type="button" class="btn btn--ghost btn--sm" data-music-toggle aria-pressed="false">
+            <svg width="18" height="18" aria-hidden="true"><use href="#i-play" /></svg><span data-label>Play music</span>
+          </button>
+          <button type="button" class="btn btn--ghost btn--sm" data-music-mute aria-pressed="false">
+            <svg width="18" height="18" aria-hidden="true"><use href="#i-volume" /></svg><span data-label>Sound on</span>
+          </button>
+          <label class="range-row"><span>Volume</span>
+            <input type="range" min="0" max="100" value="60" data-music-volume aria-label="Volume" />
+          </label>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- 1. INTRO -->
+      <section class="screen screen--intro" id="screen-intro" data-screen="intro" aria-labelledby="intro-title">
+        <canvas class="ambient-canvas" id="ambient-intro" aria-hidden="true"></canvas>
+        <div class="intro__rangoli" id="intro-rangoli" aria-hidden="true"></div>
+        <div class="intro__content">
+          <div class="intro__diyas" id="intro-diyas" aria-hidden="true"></div>
+          <h1 class="intro__title" id="intro-title" tabindex="-1" data-heading>Diwali Wishes</h1>
+          <p class="intro__tagline" id="intro-tagline">Light Up Someone's World</p>
+          <p class="intro__note" id="intro-note" hidden></p>
+          <div class="loader" id="intro-loader-wrap">
+            <div class="loader__track"><div class="loader__bar" id="intro-loader" role="progressbar" aria-label="Loading the celebration" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div></div>
+            <span class="loader__text" id="intro-loader-text">Lighting the diyas…</span>
+          </div>
+          <div class="actions actions--center" id="intro-actions">
+            <button type="button" class="btn btn--gold" id="intro-start" disabled>Start Celebration</button>
+            <button type="button" class="btn btn--ghost" id="intro-skip">Skip Intro</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2-5. STUDIO -->
+      <section class="screen" id="screen-studio" data-screen="studio" aria-labelledby="studio-title" hidden>
+        <div class="wrap">
+          <header class="screen__head">
+            <h2 id="studio-title" tabindex="-1" data-heading>Create your Diwali wish</h2>
+            <p>Tell us who it is for. The wish is written from our hand-crafted collection, in the language and tone you choose.</p>
+          </header>
+          <div class="studio">
+            <form class="studio__form glass" id="studio-form" novalidate autocomplete="off">
+              <div class="field-row">
+                <div class="field">
+                  <label for="in-recipient">Recipient's name</label>
+                  <input id="in-recipient" name="recipient" type="text" maxlength="30" required aria-describedby="err-recipient" placeholder="e.g. Aarav" />
+                  <p class="error" id="err-recipient" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="in-sender">Your name <span class="muted">(optional)</span></label>
+                  <input id="in-sender" name="sender" type="text" maxlength="30" aria-describedby="err-sender" placeholder="e.g. Riya" />
+                  <p class="error" id="err-sender" aria-live="polite"></p>
+                </div>
+              </div>
+
+              <fieldset class="field">
+                <legend>Who is this wish for?</legend>
+                <div class="chips" id="rel-group" role="radiogroup" aria-label="Relationship"></div>
+                <p class="error" id="err-relationship" aria-live="polite"></p>
+              </fieldset>
+
+              <div class="field-row">
+                <fieldset class="field">
+                  <legend>Language</legend>
+                  <div class="chips" id="lang-group" role="radiogroup" aria-label="Language"></div>
+                </fieldset>
+                <fieldset class="field">
+                  <legend>Tone</legend>
+                  <div class="chips" id="tone-group" role="radiogroup" aria-label="Wish tone"></div>
+                  <p class="hint" id="tone-note" aria-live="polite"></p>
+                </fieldset>
+              </div>
+
+              <div class="field">
+                <label for="in-custom">Add a line of your own <span class="muted">(optional)</span></label>
+                <textarea id="in-custom" name="custom" rows="3" maxlength="200" placeholder="e.g. Save me a ladoo!"></textarea>
+                <p class="hint"><span id="custom-count">0</span>/200</p>
+              </div>
+
+              <div class="actions">
+                <button type="submit" class="btn btn--gold" id="btn-generate">Generate Wish</button>
+              </div>
+            </form>
+
+            <aside class="studio__preview" aria-label="Wish preview">
+              <div class="paper">
+                <p class="paper__label">Live preview</p>
+                <p class="paper__text" id="preview-text"></p>
+              </div>
+              <div class="glass wish-tools" id="wish-tools" hidden>
+                <label for="wish-edit">Edit your wish</label>
+                <textarea id="wish-edit" rows="7" maxlength="900"></textarea>
+                <p class="hint" id="edit-note" aria-live="polite"></p>
+                <div class="actions">
+                  <button type="button" class="btn btn--ghost btn--sm" id="btn-regen">Regenerate</button>
+                  <button type="button" class="btn btn--ghost btn--sm" id="btn-shuffle">Shuffle</button>
+                  <button type="button" class="btn btn--ghost btn--sm" id="btn-copy">Copy wish</button>
+                </div>
+              </div>
+              <button type="button" class="btn btn--gold btn--wide" id="btn-continue" disabled>Seal it in a gift box</button>
+              <p class="hint" id="continue-hint">Generate your wish to continue.</p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6-7. GIFT -->
+      <section class="screen screen--gift" id="screen-gift" data-screen="gift" aria-labelledby="gift-title" hidden>
+        <div class="wrap wrap--narrow">
+          <header class="screen__head">
+            <h2 id="gift-title" tabindex="-1" data-heading>Your gift is waiting</h2>
+            <p id="gift-instructions">Drag to turn the box, then tap it or press Open Gift.</p>
+          </header>
+        </div>
+        <div class="gift-stage" id="gift-stage">
+          <canvas id="gift-canvas" role="img" aria-label="Interactive 3D gift box wrapped in a golden ribbon"></canvas>
+          <div class="gift-fallback" id="gift-fallback" hidden></div>
+          <div class="gift-reveal" id="gift-reveal" hidden aria-live="polite">
+            <p class="gift-reveal__kicker">A Diwali wish for</p>
+            <p class="gift-reveal__to" id="gift-reveal-to"></p>
+          </div>
+        </div>
+        <div class="actions actions--center">
+          <button type="button" class="btn btn--gold" id="gift-open">Open Gift</button>
+          <button type="button" class="btn btn--gold" id="gift-continue" hidden>Continue to the celebration</button>
+          <button type="button" class="btn btn--ghost" id="gift-back">Edit wish</button>
+        </div>
+      </section>
+
+      <!-- 8-9. CELEBRATION -->
+      <section class="screen screen--cel" id="screen-celebration" data-screen="celebration" aria-labelledby="cel-title" hidden>
+        <canvas class="ambient-canvas" id="ambient-cel" aria-hidden="true"></canvas>
+        <canvas class="fireworks-canvas" id="fireworks-canvas" aria-hidden="true"></canvas>
+        <div class="cel__content">
+          <div class="cel__diya" id="cel-diya">
+            <canvas id="diya-canvas" role="img" aria-label="A glowing golden diya"></canvas>
+            <div class="cel__diya-fallback" id="diya-fallback" hidden></div>
+          </div>
+          <h2 class="cel__title" id="cel-title" tabindex="-1" data-heading>Happy Diwali</h2>
+          <p class="cel__to" id="cel-to"></p>
+          <div class="paper paper--cel"><p class="paper__text" id="cel-wish"></p></div>
+          <div class="cel__rangoli" id="cel-rangoli" aria-hidden="true"></div>
+          <p class="hint cel__hint">Tap anywhere in the sky to launch a firework.</p>
+          <div class="actions actions--center">
+            <button type="button" class="btn btn--gold" id="cel-fireworks">Launch fireworks</button>
+            <button type="button" class="btn btn--ghost" id="cel-replay">Replay celebration</button>
+            <button type="button" class="btn btn--ghost" data-music-mute aria-pressed="false">
+              <svg width="18" height="18" aria-hidden="true"><use href="#i-volume" /></svg><span data-label>Sound on</span>
+            </button>
+          </div>
+          <div class="actions actions--center">
+            <button type="button" class="btn btn--ghost" id="cel-rangoli-btn">Draw a rangoli</button>
+            <button type="button" class="btn btn--gold" id="cel-card">Continue to greeting card</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. RANGOLI -->
+      <section class="screen" id="screen-rangoli" data-screen="rangoli" aria-labelledby="rangoli-title" hidden>
+        <div class="wrap">
+          <header class="screen__head">
+            <h2 id="rangoli-title" tabindex="-1" data-heading>Rangoli studio</h2>
+            <p>Draw with a mouse, finger or pen. Symmetry mirrors every stroke. With the keyboard: focus the canvas, move with arrow keys, press Space to start and stop a line.</p>
+          </header>
+          <div class="rangoli">
+            <div class="rangoli__canvas glass">
+              <div class="canvas-wrap">
+                <canvas id="rangoli-canvas" tabindex="0" aria-label="Rangoli drawing canvas"></canvas>
+                <p class="canvas-hint" id="rangoli-hint">Start drawing, or add a preset pattern</p>
+              </div>
+            </div>
+            <div class="rangoli__controls glass">
+              <fieldset class="field">
+                <legend>Colour</legend>
+                <div class="swatches" id="rangoli-colors" role="radiogroup" aria-label="Brush colour"></div>
+              </fieldset>
+              <div class="field">
+                <label for="rangoli-size">Brush size <output id="rangoli-size-out" for="rangoli-size">8px</output></label>
+                <input type="range" id="rangoli-size" min="2" max="40" value="8" />
+              </div>
+              <div class="field">
+                <label for="rangoli-symmetry">Symmetry</label>
+                <select id="rangoli-symmetry">
+                  <option value="off">Off – freehand</option>
+                  <option value="mirror">Mirror (left / right)</option>
+                  <option value="r4">4-fold rotation</option>
+                  <option value="r6" selected>6-fold mandala</option>
+                  <option value="r8">8-fold mandala</option>
+                  <option value="r12">12-fold mandala</option>
+                </select>
+              </div>
+              <fieldset class="field">
+                <legend>Preset patterns</legend>
+                <div class="actions">
+                  <button type="button" class="btn btn--ghost btn--sm" data-preset="lotus">Lotus</button>
+                  <button type="button" class="btn btn--ghost btn--sm" data-preset="star">Star mandala</button>
+                  <button type="button" class="btn btn--ghost btn--sm" data-preset="kolam">Dot kolam</button>
+                  <button type="button" class="btn btn--ghost btn--sm" data-preset="diyas">Ring of diyas</button>
+                </div>
+              </fieldset>
+              <div class="actions">
+                <button type="button" class="btn btn--ghost btn--sm" id="rangoli-undo" disabled>Undo</button>
+                <button type="button" class="btn btn--ghost btn--sm" id="rangoli-clear" disabled>Clear</button>
+                <button type="button" class="btn btn--gold btn--sm" id="rangoli-download">Download PNG</button>
+              </div>
+              <div class="actions">
+                <button type="button" class="btn btn--gold" id="rangoli-next">Continue to greeting card</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 11-13. CARD -->
+      <section class="screen" id="screen-card" data-screen="card" aria-labelledby="card-title" hidden>
+        <div class="wrap">
+          <header class="screen__head">
+            <h2 id="card-title" tabindex="-1" data-heading>Greeting card studio</h2>
+            <p>Pick a design, edit the words and download a high-resolution card.</p>
+          </header>
+          <div class="cardstudio">
+            <div class="card-stage" id="card-stage">
+              <div class="card-scaler" id="card-scaler">
+                <article class="card card--royal" id="greeting-card" aria-label="Greeting card preview">
+                  <div class="card__frame"></div>
+                  <div class="card__deco card__deco--top" id="card-deco-top"></div>
+                  <div class="card__body">
+                    <p class="card__title">Happy Diwali</p>
+                    <p class="card__title-hi" lang="hi">शुभ दीपावली</p>
+                    <div class="card__divider"></div>
+                    <p class="card__to" id="card-to"></p>
+                    <p class="card__msg" id="card-msg"></p>
+                    <p class="card__from" id="card-from"></p>
+                  </div>
+                  <div class="card__deco card__deco--bottom" id="card-deco-bottom"></div>
+                </article>
+              </div>
+            </div>
+            <div class="cardstudio__controls glass">
+              <fieldset class="field">
+                <legend>Design</legend>
+                <div class="chips" id="card-template-group" role="radiogroup" aria-label="Card template"></div>
+              </fieldset>
+              <div class="field-row">
+                <div class="field"><label for="card-recipient">To</label><input id="card-recipient" type="text" maxlength="30" /></div>
+                <div class="field"><label for="card-sender">From</label><input id="card-sender" type="text" maxlength="30" /></div>
+              </div>
+              <div class="field">
+                <label for="card-message">Message</label>
+                <textarea id="card-message" rows="5" maxlength="450"></textarea>
+                <p class="hint"><span id="card-count">0</span>/450 – long messages shrink automatically to fit.</p>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="card-font">Font</label>
+                  <select id="card-font"></select>
+                </div>
+                <div class="field">
+                  <label for="card-size">Text size <output id="card-size-out" for="card-size">22px</output></label>
+                  <input type="range" id="card-size" min="14" max="34" value="22" />
+                </div>
+              </div>
+              <div class="actions">
+                <button type="button" class="btn btn--gold" id="card-png">Download PNG</button>
+                <button type="button" class="btn btn--gold" id="card-pdf">Download PDF</button>
+              </div>
+              <p class="hint" id="card-status" aria-live="polite"></p>
+              <div class="actions">
+                <button type="button" class="btn btn--ghost" id="card-next">Share your wish</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 14-15. SHARE -->
+      <section class="screen" id="screen-share" data-screen="share" aria-labelledby="share-title" hidden>
+        <div class="wrap">
+          <header class="screen__head">
+            <h2 id="share-title" tabindex="-1" data-heading>Share the light</h2>
+            <p>Send your wish to someone special. The link only carries names, relationship, language and the chosen wish.</p>
+          </header>
+          <div class="share">
+            <div class="glass share__main">
+              <div class="paper paper--small"><p class="paper__text" id="share-text"></p></div>
+              <div class="actions">
+                <button type="button" class="btn btn--gold" id="share-wa">Share on WhatsApp</button>
+                <button type="button" class="btn btn--ghost" id="share-native">Share…</button>
+              </div>
+              <div class="actions">
+                <button type="button" class="btn btn--ghost btn--sm" id="share-copy-wish">Copy wish</button>
+                <button type="button" class="btn btn--ghost btn--sm" id="share-copy-url">Copy link</button>
+              </div>
+              <label class="field" for="share-url">Personalised link
+                <input id="share-url" type="text" readonly />
+              </label>
+            </div>
+            <div class="glass share__qr">
+              <h3>QR code</h3>
+              <div class="qr-box"><canvas id="qr-canvas" role="img" aria-label="QR code for your personalised Diwali wish link"></canvas></div>
+              <p class="error" id="qr-error" aria-live="polite"></p>
+              <button type="button" class="btn btn--ghost btn--sm" id="qr-download">Download QR</button>
+            </div>
+          </div>
+          <div class="actions actions--center">
+            <button type="button" class="btn btn--ghost" id="share-card">Back to greeting card</button>
+            <button type="button" class="btn btn--gold" id="share-restart">Restart experience</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="veil" id="veil" aria-hidden="true"></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <p class="sr-only" id="live" aria-live="polite"></p>
+
+    <script type="module" src="/src/index.js"></script>
+  </body>
+</html>

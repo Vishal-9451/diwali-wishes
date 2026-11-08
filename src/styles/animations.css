@@ -1,0 +1,21 @@
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+@keyframes flame {
+  0%, 100% { transform: scale(1, 1) rotate(-1deg); }
+  25% { transform: scale(0.94, 1.07) rotate(1.5deg); }
+  50% { transform: scale(1.04, 0.96) rotate(-1deg); }
+  75% { transform: scale(0.97, 1.05) rotate(1deg); }
+}
+@keyframes glow { 0%, 100% { opacity: 0.16; } 50% { opacity: 0.32; } }
+
+.diya-flame { transform-box: fill-box; transform-origin: 50% 100%; animation: flame 1.6s ease-in-out infinite; }
+.diya-glow { animation: glow 2.4s ease-in-out infinite; }
+.intro__diya:nth-child(2) .diya-flame { animation-delay: -0.5s; }
+.intro__diya:nth-child(3) .diya-flame { animation-delay: -1s; }
+
+.journey__btn[aria-current='step'] { animation: none; }
+.toast, .btn, .chip { will-change: auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+  .intro__rangoli svg, .cel__rangoli svg { animation: none; }
+}
